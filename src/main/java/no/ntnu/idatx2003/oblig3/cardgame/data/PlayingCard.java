@@ -1,4 +1,4 @@
-package no.ntnu.idatx2003.oblig3.cardgame;
+package no.ntnu.idatx2003.oblig3.cardgame.data;
 
 /**
  * Represents a playing card. A playing card has a number (face) between
@@ -45,8 +45,15 @@ public class PlayingCard {
    *
    * @return the suit and face of the card as a string
    */
+
   public String getAsString() {
-    return String.format("%s%s", suit, face);
+    String faceString;
+
+      faceString = Integer.toString(face);
+      System.out.println(faceString);
+
+    // Return the formatted string combining the face and suit
+    return faceString + suit;
   }
 
   /**
@@ -68,6 +75,12 @@ public class PlayingCard {
     return face;
   }
 
+  /**
+   * Returns a string representation of the card. The returned string
+   * is the same as the one returned by {@link #getAsString()}.
+   *
+   * @return a string representation of the card
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -80,6 +93,12 @@ public class PlayingCard {
     return getSuit() == otherCard.getSuit() && getFace() == otherCard.getFace();
   }
 
+  /**
+   * Returns a hash code value for the object. This method is supported for the benefit of hash
+   * tables such as those provided by {@link java.util.HashMap}.
+   *
+   * @return a hash code value for this object
+   */
   @Override
   public int hashCode() {
     int hash = 7;
